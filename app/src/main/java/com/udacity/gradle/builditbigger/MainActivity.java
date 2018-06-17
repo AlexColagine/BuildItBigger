@@ -13,11 +13,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment, new MainActivityFragmentFree()).commit();
+        //noinspection ConstantConditions
+        if(BuildConfig.FLAVOR.equals("paid")){
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment, new MainActivityFragment()).commit();
+        } else {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment, new MainActivityFragmentFree()).commit();
+        }
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

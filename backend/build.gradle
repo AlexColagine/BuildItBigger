@@ -33,9 +33,9 @@ dependencies {
     compile project(path: ':JokesLibrary')
 }
 
-/*appengine {
+appengine {
     run {
         host = "0.0.0.0"
     }
-} */
+}
 
